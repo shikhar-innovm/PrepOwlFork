@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prepowl/_utils/constants/routes.dart';
-import 'package:prepowl/_utils/ui_components/buttons.dart';
+
+import '_utils/constants/routes.dart';
+import '_utils/ui_components/buttons.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);
