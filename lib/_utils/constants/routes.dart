@@ -1,7 +1,7 @@
 import 'package:get/get_navigation/get_navigation.dart';
-import '../../modules/login/view/login_ui.dart';
 
 import '../../modules/home/view/home_page.dart';
+import '../../modules/login/view/login_ui.dart';
 import '../../welcome.dart';
 
 class RouteNames {

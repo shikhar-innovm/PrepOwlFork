@@ -14,11 +14,41 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       ));
       final result = await LoginRepoImp().googleLogin();
       final updatedState = result.fold(
-        (l) => state.copyWith(isLoading: false, message: l.response.toString()),
-        (r) => state.copyWith(
+        (l) => state.copyWith(
           isLoading: false,
-          loginDTO: r,
+          errorMessage: l.response.toString(),
+          isUnauthenticated: true,
+          isAuthenticated: false,
         ),
+        (r) {
+          return state.copyWith(
+            isLoading: false,
+            loginDTO: r,
+            isUnauthenticated: false,
+            isAuthenticated: true,
+          );
+        },
+      );
+      emit(updatedState);
+    });
+
+    on<GoogleLogout>((event, emit) async {
+      emit(state.copyWith(
+        isLoading: true,
+      ));
+      final result = await LoginRepoImp().googleLogout();
+      final updatedState = result.fold(
+        (l) => state.copyWith(
+            isLoading: false,
+            errorMessage: l.response.toString(),
+            isUnauthenticated: true),
+        (r) {
+          return state.copyWith(
+            isLoading: false,
+            isUnauthenticated: true,
+            isAuthenticated: false,
+          );
+        },
       );
       emit(updatedState);
     });
