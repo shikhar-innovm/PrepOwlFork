@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../model/login_dto.dart';
+import '../model/user_dto.dart';
 import '../repo/login_repo.dart';
 
 part 'login_event.dart';
@@ -12,7 +12,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(
         isLoading: true,
       ));
+
       final result = await LoginRepoImp().googleLogin();
+
       final updatedState = result.fold(
         (l) => state.copyWith(
           isLoading: false,
@@ -23,7 +25,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         (r) {
           return state.copyWith(
             isLoading: false,
-            loginDTO: r,
+            userDTO: r,
             isUnauthenticated: false,
             isAuthenticated: true,
           );
@@ -36,7 +38,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(
         isLoading: true,
       ));
+
       final result = await LoginRepoImp().googleLogout();
+
       final updatedState = result.fold(
         (l) => state.copyWith(
             isLoading: false,
