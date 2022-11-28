@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../model/onboarding_dto.dart';
+import '../model/examcategory_dto.dart';
 
 import '../repo/onboarding_repo.dart';
 

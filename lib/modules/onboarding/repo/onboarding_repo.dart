@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../../../_utils/constants/string_constants.dart';
 import '../../../_utils/entities/api_response.dart';
 
-import '../model/onboarding_dto.dart';
+import '../model/examcategory_dto.dart';
 
 abstract class OnboardingRepository {
   Future<APIResponse<List<ExamCategoryDTO>>> getAllExamList();
