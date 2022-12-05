@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prepowl/_utils/helpers/global.dart';
 import 'dart:math';
 import '../../../../_utils/res/dimen.dart';
-import '../../model/onboarding_dto.dart';
+import '../../model/examcategory_dto.dart';
 
 class ExamCategoryItemChip extends StatelessWidget {
   const ExamCategoryItemChip({Key? key, required this.examCategoryList})
