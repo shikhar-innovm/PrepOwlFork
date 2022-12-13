@@ -68,9 +68,11 @@ class AppConst {
   static const betterLuckNextTime = 'Better Luck Next Time!';
   static const yourScore = "Your score";
   static const viewAllAnswers = "View all answers";
+  static const questions = 'Questions';
 }
 
 class DBConst {
   static const examCategoryCollectionName = "exam_category_list";
   static const examCollectionName = "exam_list";
+  static const examTestCollectionName = "exam_test";
 }

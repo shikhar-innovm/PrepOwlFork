@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../_utils/constants/enums.dart';
+//import '../repo/instruction_and_test_repo.dart';
 
 part 'instruction_and_test_event.dart';
 part 'instruction_and_test_state.dart';
@@ -16,7 +18,7 @@ class InstructionAndTestBloc
       );
     });
 
-    on<StartTest>((event, emit) {
+    on<StartTest>((event, emit) async {
       emit(
         state.copyWith(
           proceedToStartTest: true,
@@ -24,7 +26,7 @@ class InstructionAndTestBloc
       );
     });
 
-    on<UpdateSelectedQuestionIndex>((event, emit) {
+    on<UpdateSelectedQuestionIndex>((event, emit) async {
       emit(
         state.copyWith(
           selectedQuestionIndex: event.direction == DIRECTION.backward

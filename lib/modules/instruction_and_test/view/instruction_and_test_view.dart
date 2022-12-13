@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:prepowl/_utils/helpers/global.dart';
+//import 'package:get/get.dart';
 import '../../../_utils/configs/theme_config.dart';
 import '../../../_utils/constants/string_constants.dart';
 import '../../../_utils/res/dimen.dart';
@@ -25,6 +26,7 @@ class InstructionAndTestUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final id = Get.arguments["id"];
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -33,6 +35,12 @@ class InstructionAndTestUI extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: buildTimer(context),
+          ),
+        ],
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: AppTheme.secondaryColor,
       ),
@@ -48,6 +56,28 @@ class InstructionAndTestUI extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+
+  Widget buildTimer(BuildContext context) {
+    dynamic hours;
+    dynamic minutes;
+    dynamic seconds;
+    return TweenAnimationBuilder(
+      duration: const Duration(hours: 2),
+      tween: Tween(begin: const Duration(hours: 2), end: Duration.zero),
+      builder: (_, dynamic value, child) {
+        hours = value.inHours;
+        minutes = value.inMinutes % 60;
+        seconds = value.inSeconds % 60;
+        return GestureDetector(
+          onTap: () {},
+          child: Text(
+            "${hours.toInt().toString().padLeft(2, '0')}:${minutes.toInt().toString().padLeft(2, '0')}:${seconds.toInt().toString().padLeft(2, '0')}",
+            style: const TextStyle(color: Color.fromARGB(255, 249, 249, 254)),
+          ),
+        );
+      },
     );
   }
 }

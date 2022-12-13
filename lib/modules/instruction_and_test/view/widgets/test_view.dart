@@ -21,6 +21,7 @@ class TestView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final id = Get.arguments["id"];
     return SafeArea(
       child: PageView.builder(
         physics: const NeverScrollableScrollPhysics(),
